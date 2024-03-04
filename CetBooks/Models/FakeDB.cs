@@ -60,5 +60,14 @@
             Db.Remove(book);
             return true;
         }
+        public void AddBook(Book book)
+        {
+            // Yeni kitabın ID'sini belirleme (en yüksek mevcut ID'nin bir fazlası olarak)
+            int newId = Db.Max(b => b.Id) + 1;
+            book.Id = newId;
+
+            // Kitabı koleksiyona ekleme
+            Db.Add(book);
+        }
     }
 }

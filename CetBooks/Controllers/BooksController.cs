@@ -26,8 +26,8 @@ namespace CetBooks.Controllers
             }
 
             return View(book);
-
         }
+
         public IActionResult Delete(int? id)
         {
             if (!id.HasValue) return BadRequest();
@@ -36,13 +36,29 @@ namespace CetBooks.Controllers
             var result = db.DeleteBook(id.Value);
             if (result)
             {
-
                 return RedirectToAction("Index");
             }
             else
             {
                 return NotFound();
             }
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Book book)
+        {
+            if (ModelState.IsValid)
+            {
+                FakeDB db = new FakeDB();
+                db.AddBook(book);
+                return RedirectToAction("Index");
+            }
+            return View(book);
         }
     }
 }

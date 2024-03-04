@@ -4,7 +4,7 @@
     <thead>
         <tr>
             <th>Title</th>
-            <th>@Html.DisplayNameFor(model=>model.Author)</th>
+            <th>@Html.DisplayNameFor(model => model.Author)</th>
             <th></th>
         </tr>
     </thead>
@@ -14,17 +14,41 @@
         {
             <tr>
                 <td>
-                    @* <a href="/books/detail/@book.Id">@book.Title</a> | *@
-
                     <a asp-action="Detail" asp-route-id="@book.Id">@book.Title</a>
                 </td>
                 <td>@book.Author </td>
-                <td> <a asp-action="Delete" asp-route-id="@book.Id" onclick="return confirm('Silmek istediğinizden emin misiniz?')"> Sil </a> | Güncelle </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@book.Id" onclick="return confirm('Silmek istediğinizden emin misiniz?')"> Sil </a> |
+                    Güncelle
+                </td>
             </tr>
         }
-        
 
-        
+        <!-- Yeni kitap ekleme formu -->
+        <tr>
+            <td>
+                <form asp-action="Create" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="Title" placeholder="Kitap Adı" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="Author" placeholder="Yazar" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="Description" placeholder="Açıklama">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="PageSize" placeholder="Sayfa Sayısı" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="Price" placeholder="Fiyat" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Kitap Ekle</button>
+                </form>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+
     </tbody>
-
 </table>
