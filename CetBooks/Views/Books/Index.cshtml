@@ -23,10 +23,9 @@
                 </td>
             </tr>
         }
-        <!-- Butonunuz -->
+
         <button id="openModalBtn" class="btn btn-primary">Yeni Kitap Ekle</button>
 
-        <!-- Modal -->
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
@@ -52,17 +51,14 @@
         </div>
 
         <script>
-            // Modalı açan butonun click olayını dinleyelim
             document.getElementById("openModalBtn").onclick = function () {
                 document.getElementById("myModal").style.display = "block";
             }
 
-            // Kapatma düğmesine tıklama
             document.getElementsByClassName("close")[0].onclick = function () {
                 document.getElementById("myModal").style.display = "none";
             }
 
-            // Kullanıcı modaldışına tıklarsa kapat
             window.onclick = function (event) {
                 if (event.target == document.getElementById("myModal")) {
                     document.getElementById("myModal").style.display = "none";
@@ -71,46 +67,43 @@
         </script>
 
         <table class="table">
-    <!-- Tablo başlık ve içeriği -->
-</table>
+            <!-- Tablo başlık ve içeriği -->
+        </table>
 
-<style>
-    /* Modal container */
-    .modal {
-        display: none; /* Modalı varsayılan olarak gizleyin */
-        position: fixed; /* Modalı sabit bir konuma yerleştirin */
-        z-index: 1; /* Modalın diğer içeriklerin üzerine gelmesini sağlayın */
-        left: 0;
-        top: 0;
-        width: 100%; /* Genişlik 100% */
-        height: 100%; /* Yükseklik 100% */
-        overflow: auto; /* Sayfa içeriği boyutlandığında kaydırma çubuğunu etkinleştir */
-        background-color: rgba(0,0,0,0.4); /* Arka plan rengi ve saydamlık */
-        padding-top: 100px; /* Modal başlığına yer vermek için */
-    }
+        <style>
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0,0,0,0.4);
+                padding-top: 100px;
+            }
 
-    /* Modal içeriği */
-    .modal-content {
-        background-color: #fefefe;
-        margin: auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%; /* İçeriğin genişliği */
-    }
+            .modal-content {
+                background-color: #fefefe;
+                margin: auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+            }
 
-    /* Modal kapatma düğmesi */
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
 
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-</style>
+                .close:hover,
+                .close:focus {
+                    color: black;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+        </style>
 </table>
